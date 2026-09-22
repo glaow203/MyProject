@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindCare - เข้าใจและก้าวผ่านโรคซึมเศร้าไปด้วยกัน</title>
+
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f4f8fc;
+            color: #1b2d5a;
+            line-height: 1.6;
+        }
+
+        /* TOP BAR */
+        .topbar {
+            background: #eef3f8;
+            padding: 12px 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            border-bottom: 1px solid #e1e8f0;
+        }
+
+        .topbar div i {
+            margin-right: 6px;
+            color: #2f80ed;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 80px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2f80ed;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: #1b2d5a;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #1b2d5a;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover, .menu a.active {
+            color: #2f80ed;
+        }
+
+        .btn-nav {
+            background: #2f80ed;
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 12px;
+            transition: background 0.3s ease, transform 0.2s ease !important;
+        }
+
+        .btn-nav:hover {
+            background: #1b66ca !important;
+            transform: translateY(-2px);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            padding: 70px 80px;
+        }
+
+        .hero-left {
+            width: 50%;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #edf4ff;
+            color: #2f80ed;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #1b2d5a;
+        }
+
+        .hero h2 {
+            color: #2f80ed;
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #556987;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+
+        .feature {
+            background: white;
+            padding: 10px 18px;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            font-size: 14px;
+            font-weight: 600;
+            color: #2f80ed;
+            border: 1px solid #eef4fc;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .primary {
+            background: #2f80ed;
+            color: white;
+            padding: 16px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(47, 128, 237, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .primary:hover {
+            background: #1b66ca;
+            transform: translateY(-2px);
+        }
+
+        .secondary {
+            background: white;
+            color: #2f80ed;
+            padding: 16px 28px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #dfe8f4;
+            transition: all 0.3s ease;
+        }
+
+        .secondary:hover {
+            background: #f4f8fc;
+            border-color: #2f80ed;
+            transform: translateY(-2px);
+        }
+
+        .hero-right {
+            width: 50%;
+            position: relative;
+        }
+
+        .hero-right img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            object-fit: cover;
+        }
+
+        .floating-card {
+            position: absolute;
+            left: 30px;
+            bottom: -25px;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-left: 5px solid #2f80ed;
+        }
+
+        .floating-card h3 {
+            font-size: 18px;
+            color: #1b2d5a;
+        }
+
+        .floating-card p {
+            font-size: 14px;
+            color: #667;
+            margin: 0;
+        }
+
+        /* CARDS SECTION */
+        .cards-container {
+            max-width: 1400px;
+            margin: 60px auto 80px;
+            padding: 0 80px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #1b2d5a;
+        }
+
+        .section-title p {
+            color: #667;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #eef4fc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(47, 128, 237, 0.12);
+            border-color: #cce0ff;
+        }
+
+        .card i {
+            font-size: 38px;
+            margin-bottom: 20px;
+            color: #2f80ed;
+            background: #edf4ff;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 18px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1b2d5a;
+        }
+
+        .card p {
+            color: #667;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #2f80ed;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+
+        .card a:hover {
+            gap: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: white;
+            border-top: 1px solid #e1e8f0;
+            padding: 40px 80px 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eef4fc;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: auto;
+            padding-top: 20px;
+            text-align: center;
+            color: #8898aa;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .topbar, .navbar, .hero, .cards-container, footer {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding-top: 40px;
+            }
+
+            .hero-left, .hero-right {
+                width: 100%;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .topbar {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .menu {
+                display: none; /* หรือทำเมนู Hamburger */
+            }
+        /* ==========================================
+   รองรับการแสดงผลบนสมาร์ตโฟน (Mobile Responsive)
+   ========================================== */
+@media (max-width: 768px) {
+    /* ปรับระยะขอบของ Topbar และ Navbar */
+    .topbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    /* ปรับขนาด Container บนมือถือ */
+    .container {
+        width: 95%;
+        padding: 25px 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    /* ปรับการ์ดต่างๆ ให้แสดงเป็น 1 คอลัมน์เดี่ยวบนมือถือ */
+    .symptom-grid,
+    .info-card-grid,
+    .highlight-grid,
+    .causes-grid,
+    .info-grid,
+    .treatment-grid,
+    .complication-grid,
+    .neuro-grid,
+    .myth-container,
+    .risk-list,
+    .tips-list {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* ปรับกรอบรูปภาพการ์ดให้พอดีกับหน้าจอมือถือ */
+    .card-img {
+        height: 180px;
+    }
+
+    .main-img {
+        max-height: 250px;
+    }
+
+    /* สั่งให้การ์ดข้อ 9 ในหน้า self-care แสดงผล 1 คอลัมน์ปกติ */
+    .info-card[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+    }
+
+    /* ปรับตารางให้เลื่อนซ้าย-ขวาได้หากกว้างเกินหน้าจอ */
+    .compare-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}    
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div><i class="fa-solid fa-heart"></i> สุขภาพจิตดี เริ่มต้นที่ความเข้าใจ</div>
+        <div><i class="fa-solid fa-phone"></i> สายด่วนสุขภาพจิต <strong>1323</strong> (โทรฟรี 24 ชม.)</div>
+    </div>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class="fa-solid fa-brain"></i> Mind<span>Care</span>
+        </a>
+
+        <div class="menu">
+            <a href="index.html" class="active">หน้าแรก</a>
+            <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
+            <a href="symptoms.html">อาการ</a>
+            <a href="causes.html">สาเหตุ</a>
+            <a href="selfcare.html">การดูแลตนเอง</a>
+            <a href="help.html" class="btn-nav">ขอความช่วยเหลือ</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-left">
+            <div class="tag">
+                <i class="fa-solid fa-shield-heart"></i> เข้าใจโรคซึมเศร้า เพื่อก้าวผ่านไปด้วยกัน
+            </div>
+
+            <h1>โรคซึมเศร้า</h1>
+            <h2>ไม่ใช่ความอ่อนแอ แต่คือภาวะทางอารมณ์ที่รักษาได้</h2>
+
+            <p>
+                เว็บไซต์ศูนย์รวมข้อมูลและความรู้เกี่ยวกับโรคซึมเศร้า ทั้งอาการ สาเหตุ วิธีรับมือและการดูแลตนเอง รวมถึงช่องทางขอความช่วยเหลือจากผู้เชี่ยวชาญ เพื่อให้คุณและคนรอบข้างรับมือได้อย่างถูกต้อง
+            </p>
+
+    
+        </div>
+
+        <div class="hero-right">
+            <img src="https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?auto=format&fit=crop&w=1200&q=80" alt="MindCare Support">
+            <div class="floating-card">
+                <h3>คุณไม่ได้อยู่คนเดียว 🤍</h3>
+                <p>เราพร้อมอยู่เคียงข้างและรับฟังคุณเสมอ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARDS SECTION -->
+    <section class="cards">
+
+    <!-- การ์ดที่ 1: โรคซึมเศร้าคืออะไร -->
+    <a href="what-is-depression.html" class="card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>โรคซึมเศร้าคืออะไร</h3>
+        <p>ความหมาย กลไกของโรค และผลกระทบต่อชีวิตประจำวัน</p>
+        <div class="card-link">อ่านเพิ่มเติม →</div>
+    </a>
+
+    <!-- การ์ดที่ 2: อาการของโรค -->
+    <a href="symptoms.html" class="card">
+        <i class="fa-solid fa-face-sad-tear"></i>
+        <h3>อาการของโรคซึมเศร้า</h3>
+        <p>สังเกตอาการเบื้องต้นเพื่อเข้ารับการดูแล</p>
+        <div class="card-link">อ่านเพิ่มเติม →</div>
+    </a>
+
+    <!-- การ์ดที่ 3: สาเหตุและปัจจัยเสี่ยง -->
+    <a href="causes.html" class="card">
+        <i class="fa-solid fa-circle-question"></i>
+        <h3>สาเหตุและปัจจัยเสี่ยง</h3>
+        <p>เข้าใจสาเหตุที่อาจก่อให้เกิดโรคซึมเศร้า</p>
+        <div class="card-link">อ่านเพิ่มเติม →</div>
+    </a>
+
+    <!-- การ์ดที่ 4: การดูแลตนเอง -->
+    <a href="selfcare.html" class="card">
+        <i class="fa-solid fa-heart"></i>
+        <h3>การดูแลตนเอง</h3>
+        <p>เทคนิคการดูแลสุขภาพใจในชีวิตประจำวัน</p>
+        <div class="card-link">อ่านเพิ่มเติม →</div>
+    </a>
+
+    <!-- การ์ดที่ 5: ขอความช่วยเหลือ -->
+    <a href="help.html" class="card">
+        <i class="fa-solid fa-headset"></i>
+        <h3>ขอความช่วยเหลือ</h3>
+        <p>ช่องทางติดต่อผู้เชี่ยวชาญและสายด่วน</p>
+        <div class="card-link">อ่านเพิ่มเติม →</div>
+    </a>
+
+</section>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fa-solid fa-brain"></i> Mind<span>Care</span>
+            </div>
+            <p>โครงการโปรเจกต์จบสื่อการเรียนรู้และสร้างความตระหนักรู้เกี่ยวกับโรคซึมเศร้า</p>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 MindCare Project. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

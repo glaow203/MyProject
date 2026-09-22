@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อาการของโรคซึมเศร้า - MindCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f4f8fc; color: #1b2d5a; line-height: 1.8; }
+
+        /* Navigation & Topbar */
+        .topbar { background: #eef3f8; padding:12px 80px; display:flex; justify-content:space-between; font-size:14px; }
+        .navbar { background: white; display:flex; justify-content:space-between; align-items:center; padding:20px 80px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size:35px; font-weight:bold; color: #2f80ed; text-decoration:none; }
+        .logo span { color: #1b2d5a; }
+        .menu { display:flex; gap:35px; }
+        .menu a { text-decoration:none; color: #1b2d5a; font-weight:600; transition: color 0.2s; }
+        .menu a:hover, .menu a.active { color: #2f80ed; }
+
+        /* Container Layout */
+        .container { max-width: 1400px; width: 92%; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; color: #2f80ed; text-decoration: none; font-weight: 600; }
+        .back-btn:hover { text-decoration: underline; }
+
+        /* Banner & Header */
+        .page-header { text-align: center; margin-bottom: 40px; }
+        .page-header h1 { font-size: 38px; color: #1b2d5a; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; color: #555; max-width: 700px; margin: 0 auto; }
+
+        /* Main Image */
+        .main-img { 
+            width: 100%; 
+            height: auto; 
+            max-height: none; 
+            object-fit: contain; 
+            border-radius: 20px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background-color: #eaf2ff;
+            border-left: 5px solid #2f80ed;
+            padding: 20px 25px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 16px;
+            color: #1b2d5a;
+        }
+
+        /* Symptom Cards Grid */
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .symptom-card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .symptom-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .symptom-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            color: #2f80ed;
+        }
+        .symptom-card-header i { font-size: 24px; }
+        .symptom-card-header h3 { font-size: 20px; margin: 0; color: #1b2d5a; }
+        .symptom-card ul { padding-left: 20px; color: #4a5568; }
+        .symptom-card li { margin-bottom: 10px; }
+
+        /* Detail Section */
+        .detail-section {
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 40px;
+        }
+        .detail-section h2 {
+            color: #1b2d5a;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        .detail-section h3 {
+            color: #1b2d5a;
+            font-size: 20px;
+            margin: 25px 0 10px;
+        }
+        .detail-section p {
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        .detail-section ul {
+            padding-left: 20px;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        .detail-section li {
+            margin-bottom: 8px;
+        }
+        /* ==========================================
+   รองรับการแสดงผลบนสมาร์ตโฟน (Mobile Responsive)
+   ========================================== */
+@media (max-width: 768px) {
+    /* ปรับระยะขอบของ Topbar และ Navbar */
+    .topbar {
+        padding: 10px 20px;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    /* ปรับขนาด Container บนมือถือ */
+    .container {
+        width: 95%;
+        padding: 25px 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    /* ปรับการ์ดต่างๆ ให้แสดงเป็น 1 คอลัมน์เดี่ยวบนมือถือ */
+    .symptom-grid,
+    .info-card-grid,
+    .highlight-grid,
+    .causes-grid,
+    .info-grid,
+    .treatment-grid,
+    .complication-grid,
+    .neuro-grid,
+    .myth-container,
+    .risk-list,
+    .tips-list {
+        grid-template-columns: 1fr !important;
+        gap: 15px;
+    }
+
+    /* ปรับกรอบรูปภาพการ์ดให้พอดีกับหน้าจอมือถือ */
+    .card-img {
+        height: 180px;
+    }
+
+    .main-img {
+        max-height: 250px;
+    }
+
+    /* สั่งให้การ์ดข้อ 9 ในหน้า self-care แสดงผล 1 คอลัมน์ปกติ */
+    .info-card[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+    }
+
+    /* ปรับตารางให้เลื่อนซ้าย-ขวาได้หากกว้างเกินหน้าจอ */
+    .compare-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <!-- Topbar & Navbar -->
+    <div class="topbar">
+        <span>💙 สุขภาพจิตดี เริ่มต้นที่ความเข้าใจ</span>
+        <span>📞 สายด่วนสุขภาพจิต 1323</span>
+    </div>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Mind<span>Care</span></a>
+        <div class="menu">
+            <a href="index.html">หน้าแรก</a>
+            <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
+            <a href="symptoms.html" class="active">อาการ</a>
+            <a href="causes.html">สาเหตุ</a>
+            <a href="self-care.html">การดูแลตนเอง</a>
+            <a href="help.html">ขอความช่วยเหลือ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
+
+        <div class="page-header">
+            <h1>อาการและสัญญาณเตือนของโรคซึมเศร้า</h1>
+            <p>การสังเกตความเปลี่ยนแปลงของตนเองและคนรอบข้างคือขั้นตอนแรกที่สำคัญในการรับมือ</p>
+        </div>
+
+        <!-- รูปภาพหลัก -->
+        <img src="https://www.adpt.news/wp-content/uploads/2022/12/image-22-1024x724.jpeg" alt="ภาพสะท้อนอารมณ์ซึมเศร้า" class="main-img" onerror="this.src='https://picsum.photos/1200/500?random=1'">
+
+        <div class="alert-box">
+            📌 <strong>ข้อสังเกตสำคัญ:</strong> เกณฑ์ทางการแพทย์ระบุว่า หากพบอาการในกลุ่มนี้อย่างน้อย 5 อาการ และเกิดขึ้นสม่ำเสมอเกือบตลอดทั้งวัน เป็นเวลาติดต่อกันเกิน 2 สัปดาห์ขึ้นไป ควรเข้าพบแพทย์เพื่อประเมินอาการ
+        </div>
+
+        <!-- การ์ดอาการ 4 ด้าน -->
+        <h2 style="margin-bottom: 25px; color: #1b2d5a;">อาการ 4 ด้านหลักที่พบได้บ่อย</h2>
+        <div class="symptom-grid">
+            <div class="symptom-card">
+                <div class="symptom-card-header">
+                    <i class="fa-solid fa-heart-crack"></i>
+                    <h3>1. ด้านอารมณ์และจิตใจ</h3>
+                </div>
+                <ul>
+                    <li>รู้สึกเศร้า หดหู่ ท้อแท้ หรือว่างเปล่าในจิตใจ</li>
+                    <li>หมดความสนใจในกิจกรรมหรืองานอดิเรกที่เคยชอบมากๆ</li>
+                    <li>อารมณ์หงุดหงิด ฉุนเฉียวง่าย ขาดความอดทน</li>
+                    <li>รู้สึกหมดหวังกับอนาคต รู้สึกไร้ค่า หรือรู้สึกผิดเกินจริง</li>
+                    <li>รู้สึกดิ่ง วิตกกังวล หรือดิ่งลงอย่างไร้สาเหตุ</li>
+                </ul>
+            </div>
+
+            <div class="symptom-card">
+                <div class="symptom-card-header">
+                    <i class="fa-solid fa-user-ninja"></i>
+                    <h3>2. ด้านพฤติกรรมและการใช้ชีวิต</h3>
+                </div>
+                <ul>
+                    <li>การแยกตัวออกจากสังคม เพื่อนฝูง และครอบครัว</li>
+                    <li>เฉื่อยชา การเคลื่อนไหวหรือการพูดจาช้าลง</li>
+                    <li>ละเลยการดูแลตัวเอง เช่น ไม่อยากอาบน้ำ หรือแต่งตัว</li>
+                    <li>ผลการเรียนหรือประสิทธิภาพการทำงานลดลงอย่างเห็นได้ชัด</li>
+                    <li>ไม่อยากออกไปเจอใคร ผลักไสคนรอบข้าง</li>
+                </ul>
+            </div>
+
+            <div class="symptom-card">
+                <div class="symptom-card-header">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>3. ด้านความคิดและการตัดสินใจ</h3>
+                </div>
+                <ul>
+                    <li>ไม่มีสมาธิ หลงลืมง่าย วอกแวกตลอดเวลา</li>
+                    <li>ตัดสินใจเรื่องง่ายๆ ในชีวิตประจำวันได้ยากลำบาก</li>
+                    <li>มองโลกในแง่ร้าย มองเห็นแต่ข้อผิดพลาดของตัวเอง</li>
+                    <li>มีความคิดทำร้ายตัวเอง หรือมีความคิดเรื่องความตายบ่อยครั้ง</li>
+                    <li>รู้สึกว่าตนเองเป็นภาระของคนอื่นอยู่เสมอ</li>
+                </ul>
+            </div>
+
+            <div class="symptom-card">
+                <div class="symptom-card-header">
+                    <i class="fa-solid fa-bed"></i>
+                    <h3>4. ด้านร่างกายและพลังงาน</h3>
+                </div>
+                <ul>
+                    <li>มีปัญหาการนอน เช่น นอนไม่หลับ ตื่นกลางดึก หรือนอนมากผิดปกติ</li>
+                    <li>อ่อนเพลีย ไร้เรี่ยวแรง แม้จะไม่ได้ออกแรงหนัก</li>
+                    <li>เบื่ออาหารจนน้ำหนักลดลง หรือกินประชดอารมณ์จนน้ำหนักพุ่งสูง</li>
+                    <li>ปวดศีรษะ ปวดเมื่อยตามตัว หรือปวดท้องโดยหาสาเหตุทางกายไม่พบ</li>
+                    <li>รู้สึกแน่นหน้าอก หายใจไม่อิ่มเป็นระยะ</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- เนื้อหาขยายความเฉพาะด้านอาการ (ไม่ซ้ำกับหน้า what-is-depression.html) -->
+        <div class="detail-section">
+            <h2>การสังเกตระดับความรุนแรงและสัญญาณเตือน</h2>
+            
+            <p>
+                อาการของโรคซึมเศร้ามักไม่ได้เกิดขึ้นทันทีทันใด แต่เป็นกระบวนการที่ค่อยๆ สะสมและแสดงออกผ่านพฤติกรรมและการดำเนินชีวิตประจำวัน การรู้เท่าทันสัญญาณเตือนเหล่านี้จะช่วยให้ได้รับการช่วยเหลือได้ทันท่วงที
+            </p>
+
+            <h3>1. สัญญาณเตือนระยะเริ่มต้น (Early Warnings)</h3>
+            <p>
+                ในระยะแรก หลายคนอาจคิดว่าเป็นเพียงความเครียดหรือความเหนื่อยล้าปกติ แต่หากมีอาการดังต่อไปนี้ต่อเนื่องเกิน 1-2 สัปดาห์ อาจเป็นสัญญาณเริ่มต้น:
+            </p>
+            <ul>
+                <li>เริ่มรู้สึกว่างานหรือกิจวัตรปกติที่เคยทำได้ง่าย กลายเป็นเรื่องยากและต้องใช้พลังงานอย่างมาก</li>
+                <li>เริ่มนอนหลับยากขึ้น เข้านอนแล้วคิดวนเวียน หรือตื่นนอนมารู้สึกไม่สดชื่นเหมือนไม่ได้นอน</li>
+                <li>มีความรู้สึกรำคาญใจง่ายขึ้น ตอบสนองต่อสิ่งรอบข้างด้วยความหงุดหงิดมากกว่าปกติ</li>
+            </ul>
+
+            <h3>2. ความแตกต่างระหว่าง "อารมณ์เศร้าทั่วไป" กับ "อาการซึมเศร้าทางการแพทย์"</h3>
+            <p>
+                ความเข้าใจผิดที่พบได้บ่อยคือการสับสนระหว่างความเสียใจตามธรรมชาติกับภาวะซึมเศร้า ซึ่งมีความแตกต่างสำคัญดังนี้:
+            </p>
+            <ul>
+                <li><strong>ความเศร้าทั่วไป:</strong> มักมีสาเหตุชัดเจน (เช่น ผิดหวัง สูญเสีย) อารมณ์เศร้าจะค่อยๆ ลดลงตามเวลา และยังมีช่วงเวลาที่ยังสามารถยิ้มหรือหัวเราะได้เมื่อมีสิ่งเร้าที่ชอบ</li>
+                <li><strong>อาการซึมเศร้าทางการแพทย์:</strong> ความรู้สึกเศร้าหรือว่างเปล่าจะคงอยู่เกือบตลอดทั้งวัน เป็นต่อเนื่องอย่างน้อย 2 สัปดาห์ และไม่สามารถดึงตัวเองให้มีความสุขกับสิ่งที่เคยชอบได้เลย</li>
+            </ul>
+
+            <h3>3. สัญญาณอันตรายที่ต้องได้รับการช่วยเหลือด่วน (Crisis Red Flags)</h3>
+            <p>
+                หากพบตนเองหรือคนใกล้ชิดมีอาการในกลุ่มนี้ ถือเป็นภาวะฉุกเฉินทางสุขภาพจิตที่ต้องได้รับการดูแลจากผู้เชี่ยวชาญทันที:
+            </p>
+            <ul>
+                <li>พูดหรือเขียนเกี่ยวกับความคิดเรื่องการไม่อยากมีชีวิตอยู่ การลาลับ หรือการเป็นภาระ</li>
+                <li>เริ่มมีการแจกจ่ายของมีค่า ลาเพื่อนฝูง หรือสั่งเสียอย่างผิดปกติ</li>
+                <li>อารมณ์เปลี่ยนจากเศร้าหมองมากๆ กลายเป็นสงบหรือดีใจผิดปกติอย่างฉับพลัน (อาจเป็นสัญญาณว่าได้ตัดสินใจกระทำการบางอย่างแล้ว)</li>
+                <li>มีการทำร้ายตัวเอง หรือมองหาอุปกรณ์เพื่อทำร้ายตัวเอง</li>
+            </ul>
+        </div>
+
+    </div> <!-- ปิด .container -->
+
+</body>
+</html>

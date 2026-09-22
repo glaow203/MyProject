@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สาเหตุ ปัจจัยเสี่ยง และภาวะแทรกซ้อน - MindCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f4f8fc; color: #1b2d5a; line-height: 1.8; }
+
+        /* Navigation & Topbar */
+        .topbar { background: #eef3f8; padding:12px 80px; display:flex; justify-content:space-between; font-size:14px; }
+        .navbar { background: white; display:flex; justify-content:space-between; align-items:center; padding:20px 80px; box-shadow:0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size:35px; font-weight:bold; color: #2f80ed; text-decoration:none; }
+        .logo span { color: #1b2d5a; }
+        .menu { display:flex; gap:35px; }
+        .menu a { text-decoration:none; color: #1b2d5a; font-weight:600; transition: color 0.2s; }
+        .menu a:hover, .menu a.active { color: #2f80ed; }
+
+        /* Container Layout */
+        .container { max-width: 1400px; width: 92%; margin: 40px auto; background: white; padding: 50px; border-radius: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 25px; color: #2f80ed; text-decoration: none; font-weight: 600; }
+        .back-btn:hover { text-decoration: underline; }
+
+        /* Banner & Header */
+        .page-header { text-align: center; margin-bottom: 30px; }
+        .page-header h1 { font-size: 38px; color: #1b2d5a; margin-bottom: 15px; }
+        .page-header p { font-size: 18px; color: #555; max-width: 800px; margin: 0 auto; }
+
+        /* Main Banner Image */
+        .main-img { 
+            width: 100%; 
+            height: auto; 
+            max-height: auto; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: #eaf2ff;
+            border-left: 5px solid #2f80ed;
+            padding: 22px 28px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            font-size: 16px;
+            color: #1b2d5a;
+        }
+
+        /* Section Styling */
+        .section-title {
+            color: #1b2d5a;
+            font-size: 26px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 12px;
+        }
+        .section-title i { color: #2f80ed; }
+
+        /* Grid Layout for Causes */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #eef2f6;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .info-card h3 {
+            font-size: 20px;
+            color: #1b2d5a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .info-card h3 i { color: #2f80ed; font-size: 22px; }
+
+        .info-card p {
+            color: #4a5568;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Risk Factors Section */
+        .risk-section {
+            background: #f8fafc;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+
+        .risk-intro {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+
+        .risk-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .risk-item {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .risk-item i {
+            color: #2f80ed;
+            font-size: 22px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .risk-item strong {
+            color: #1b2d5a;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 16px;
+        }
+
+        .risk-item p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* Medical Warning Box */
+        .warning-note {
+            background: #fff5f5;
+            border-left: 5px solid #e53e3e;
+            border-radius: 12px;
+            padding: 20px 25px;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #c53030;
+        }
+        .warning-note i { font-size: 28px; }
+        .warning-note p { margin: 0; font-size: 15px; color: #742a2a; }
+
+        /* Complications Section */
+        .complication-section {
+            background: #fff8f8;
+            border: 1px solid #fde8e8;
+            padding: 35px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .complication-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .complication-card {
+            background: #ffffff;
+            border: 1px solid #fee2e2;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(229, 62, 62, 0.05);
+        }
+
+        .complication-card h4 {
+            color: #c53030;
+            font-size: 17px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .complication-card p {
+            color: #4a5568;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+        }
+        /* ... โค้ด CSS เดิมของคุณก่อนหน้าทั้งหมด ... */
+
+        .complication-card p {
+            color: #4a5568;
+            font-size: 14px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* 🟢 วางโค้ดชุดนี้ต่อท้ายลงไปได้เลยครับ */
+        @media (max-width: 768px) {
+            .topbar {
+                padding: 10px 20px;
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 20px;
+            }
+
+            .container {
+                width: 95%;
+                padding: 25px 20px;
+                margin: 20px auto;
+                border-radius: 16px;
+            }
+
+            .page-header h1 {
+                font-size: 26px;
+            }
+
+            .page-header p {
+                font-size: 15px;
+            }
+
+            .causes-grid,
+            .info-grid,
+            .risk-list,
+            .complication-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px;
+            }
+
+            .card-img {
+                height: 180px;
+            }
+
+            .main-img {
+                max-height: 250px;
+            }
+        }
+
+    </style> <!-- 👈 แท็กปิดเดิมที่มีอยู่แล้วในไฟล์ของคุณ -->
+</head>
+    </style>
+</head>
+<body>
+
+    <!-- Topbar & Navbar -->
+    <div class="topbar">
+        <span>💙 สุขภาพจิตดี เริ่มต้นที่ความเข้าใจ</span>
+        <span>📞 สายด่วนสุขภาพจิต 1323</span>
+    </div>
+    <nav class="navbar">
+        <a href="index.html" class="logo">Mind<span>Care</span></a>
+        <div class="menu">
+            <a href="index.html">หน้าแรก</a>
+            <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
+            <a href="symptoms.html">อาการ</a>
+            <a href="causes.html" class="active">สาเหตุ</a>
+            <a href="self-care.html">การดูแลตนเอง</a>
+            <a href="help.html">ขอความช่วยเหลือ</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> กลับหน้าแรก</a>
+
+        <div class="page-header">
+            <h1>สาเหตุ ปัจจัยเสี่ยง และภาวะแทรกซ้อนของโรคซึมเศร้า</h1>
+            <p>ทำความเข้าใจปัจจัยหลากหลายด้านที่ส่งผลกระทบ รวมถึงผลกระทบที่อาจเกิดขึ้นหากไม่ได้รับการรักษาอย่างถูกวิธี</p>
+        </div>
+
+        <!-- รูปภาพหลักส่วนหัว -->
+        <img src="https://cdn.phototourl.com/free/2026-09-22-16741fdc-0bfe-4e37-aba3-47552660ae79.jpg" alt="สาเหตุของโรคซึมเศร้า" class="main-img">
+
+        <!-- 🔹 ส่วนที่ 1: โรคซึมเศร้า เกิดจากสาเหตุอะไร? -->
+        <h2 class="section-title"><i class="fa-solid fa-microscope"></i> โรคซึมเศร้า เกิดจากสาเหตุอะไร?</h2>
+        
+        <div class="intro-box">
+            สาเหตุที่แท้จริงของโรคซึมเศร้านั้นยังไม่ทราบแน่ชัด เพราะอาการนั้นสัมพันธ์กับความผิดปกติทางจิต ปัจจัยหลาย ๆ ด้านจึงอาจส่งผลกระทบได้
+        </div>
+
+        <div class="info-grid">
+            
+            <div class="info-card">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=600&q=80" alt="ความแตกต่างทางชีวภาพ" class="card-img">
+                <h3><i class="fa-solid fa-brain"></i> ความแตกต่างทางด้านชีวภาพ</h3>
+                <p>ได้พบความเปลี่ยนแปลงทางกายภาพของสมองในผู้ป่วยโรคซึมเศร้า ความสำคัญของการเปลี่ยนแปลงดังกล่าวต่อโรคซึมเศร้ายังไม่เป็นที่ประจักษ์ชัด แต่อาจจะช่วยชี้นำไปสู่สาเหตุของโรคได้</p>
+            </div>
+
+            <div class="info-card">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="สารเคมีในสมอง" class="card-img">
+                <h3><i class="fa-solid fa-flask"></i> สารเคมีในสมอง</h3>
+                <p>สารสื่อประสาทในสมองส่งผลต่อความรู้สึก จากงานวิจัยเมื่อไม่นานมานี้ชี้ให้เห็นว่าการเปลี่ยนแปลงของสารสื่อประสาทในสมองและปฏิสัมพันธ์ของสารดังกล่าวกับวงจรระบบประสาท อาจมีส่วนเกี่ยวข้องกับการเกิดภาวะซึมเศร้า ซึ่งสำคัญต่อการรักษา</p>
+            </div>
+
+            <div class="info-card">
+                <img src="https://media.istockphoto.com/id/1490413631/th/%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%96%E0%B9%88%E0%B8%B2%E0%B8%A2/%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%AB%E0%B8%A1%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%AA%E0%B8%A1%E0%B8%94%E0%B8%B8%E0%B8%A5%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%AE%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%A1%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%80%E0%B8%82%E0%B8%B5%E0%B8%A2%E0%B8%99%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%9A%E0%B8%99%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B9%8D%E0%B8%B2.jpg?s=612x612&w=0&k=20&c=mxhTKIo67kLoDBv_t3DIZGRX8R93S0jh80PBMp_FtFA=" alt="การเปลี่ยนแปลงฮอร์โมน" class="card-img">
+                <h3><i class="fa-solid fa-arrows-rotate"></i> การเปลี่ยนแปลงฮอร์โมน</h3>
+                <p>ระดับฮอร์โมนที่ไม่สมดุลอาจจะเป็นตัวกระตุ้นภาวะซึมเศร้า โดยการเปลี่ยนแปลงดังกล่าวอาจเกิดขึ้นระหว่างตั้งครรภ์ หลังคลอดบุตร หรือหลังหมดประจำเดือน ผู้ป่วยอาจมีอารมณ์แปรปรวนหากมีภาวะโรคไทรอยด์หรือโรคอื่น ๆ</p>
+            </div>
+
+            <div class="info-card">
+                <img src="https://thumbnails.icloudhospital.com/tr:w-1536:f-webp:q-75/1-Genetic-Diseases-3d652c0b-0263-441d-9944-f61fbdd26bfa.webp" alt="พันธุกรรม" class="card-img">
+                <h3><i class="fa-solid fa-dna"></i> พันธุกรรม</h3>
+                <p>ความเสี่ยงของการป่วยเป็นโรคซึมเศร้าสูงขึ้นหากสมาชิกในครอบครัวเคยป่วยเป็นโรคซึมเศร้ามาก่อน</p>
+            </div>
+
+        </div>
+
+        <!-- 🔹 ส่วนที่ 2: อะไรคือปัจจัยเสี่ยงของการเกิดโรคซึมเศร้า? -->
+        <div class="risk-section">
+            <h2 class="section-title" style="border: none; padding: 0; margin-bottom: 15px;">
+                <i class="fa-solid fa-triangle-exclamation"></i> อะไรคือปัจจัยเสี่ยงของการเกิดโรคซึมเศร้า?
+            </h2>
+            
+            <p class="risk-intro">
+                ภาวะซึมเศร้าเกิดขึ้นได้ในทุกวัย แต่อาการมักเริ่มตั้งแต่ในวัยรุ่น และมักพบในเพศหญิงมากกว่าเพศชาย แต่อาจเป็นเพราะเพศหญิงมักเข้ารับการรักษามากกว่า ปัจจัยที่ก่อให้เกิดภาวะซึมเศร้า มีดังนี้:
+            </p>
+
+            <div class="risk-list">
+                <div class="risk-item">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <div>
+                        <strong>ลักษณะนิสัยบางประการ</strong>
+                        <p>เช่น การมองโลกในแง่ร้าย การตำหนิติเตียนตนเอง การพึ่งพาคนอื่นมากเกินไป การไม่นับถือตนเอง</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-heart-crack"></i>
+                    <div>
+                        <strong>ผ่านเหตุการณ์ที่สร้างความบอบช้ำทางจิตใจ</strong>
+                        <p>เช่น ถูกทำร้ายร่างกาย ถูกทารุณกรรมทางเพศ สูญเสียคนในครอบครัวหรือบุคคลอันเป็นที่รัก มีปัญหาด้านความสัมพันธ์ หรือปัญหาด้านการเงิน</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-users-between-lines"></i>
+                    <div>
+                        <strong>ประวัติในครอบครัว</strong>
+                        <p>คนในครอบครัวมีประวัติติดสุราเรื้อรัง ฆ่าตัวตาย เป็นโรคซึมเศร้า และไบโพลาร์</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-rainbow"></i>
+                    <div>
+                        <strong>ภาวะเบี่ยงเบนทางเพศสภาพ</strong>
+                        <p>ซึ่งไม่ได้รับการยอมรับจากคนรอบข้าง</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-notes-medical"></i>
+                    <div>
+                        <strong>ประวัติความเจ็บป่วยทางจิตเวช</strong>
+                        <p>เช่น พฤติกรรมการกินอาหารที่ผิดปกติ โรควิตกกังวล หรือสภาวะป่วยทางจิตใจหลังจากต้องเผชิญกับเหตุการณ์กระทบกระเทือนใจอย่างรุนแรง</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-wine-bottle"></i>
+                    <div>
+                        <strong>ภาวะติดสุราหรือสารเสพติด</strong>
+                        <p>การดื่มแอลกอฮอล์หรือใช้สารเสพติดเป็นประจำ ส่งผลต่อระบบประสาทและอารมณ์</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-bed-pulse"></i>
+                    <div>
+                        <strong>โรคเจ็บป่วยเรื้อรัง</strong>
+                        <p>เช่น โรคหลอดเลือดสมอง โรคมะเร็ง โรคหัวใจ</p>
+                    </div>
+                </div>
+
+                <div class="risk-item">
+                    <i class="fa-solid fa-pills"></i>
+                    <div>
+                        <strong>การใช้ยาบางชนิด</strong>
+                        <p>เช่น ยานอนหลับ หรือยาลดความดันโลหิต ควรปรึกษาแพทย์ก่อนเปลี่ยนหรือหยุดยาทุกครั้ง</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ข้อควรระวังเรื่องยา -->
+            <div class="warning-note">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <p><strong>ข้อควรระวัง:</strong> การใช้ยา เช่น ยานอนหลับ หรือยาลดความดันโลหิต ควรปรึกษาแพทย์ก่อนเปลี่ยนหรือหยุดยาทุกครั้ง ไม่ควรหยุดยาเองโดยเด็ดขาด</p>
+            </div>
+        </div>
+
+        <!-- 🔹 ส่วนที่ 3: ภาวะแทรกซ้อนจากโรคซึมเศร้า มีอะไรบ้าง? -->
+        <div class="complication-section">
+            <h2 class="section-title" style="border-color: #fca5a5; color: #991b1b;">
+                <i class="fa-solid fa-shield-virus" style="color: #dc2626;"></i> ภาวะแทรกซ้อนจากโรคซึมเศร้า มีอะไรบ้าง?
+            </h2>
+
+            <p style="color: #4a5568; font-size: 15px; margin-bottom: 20px;">
+                โรคซึมเศร้าเป็นปัญหาที่ส่งผลต่อผู้ป่วยและผู้คนรอบข้าง อาการมักแย่ลงหากไม่ได้รับการรักษา ซึ่งอาจส่งผลต่อปัญหาด้านอารมณ์ พฤติกรรม รวมถึงสุขภาพและการใช้ชีวิต ภาวะแทรกซ้อนที่พบได้ ดังนี้:
+            </p>
+
+            <div class="complication-grid">
+                <div class="complication-card">
+                    <h4><i class="fa-solid fa-weight-scale"></i> โรคทางกายและน้ำหนัก</h4>
+                    <p>ภาวะน้ำหนักเกินหรือโรคอ้วน ซึ่งอาจนำไปสู่โรคหัวใจและโรคเบาหวาน รวมถึงความเจ็บปวดและเจ็บป่วยทางร่างกายโดยหาสาเหตุไม่ได้</p>
+                </div>
+
+                <div class="complication-card">
+                    <h4><i class="fa-solid fa-head-side-virus"></i> โรคทางจิตเวชร่วม</h4>
+                    <p>โรควิตกกังวล โรคแพนิค หรือโรคกลัวสังคม รวมถึงความเสี่ยงในการเกิดภาวะติดสุราและสารเสพติด</p>
+                </div>
+
+                <div class="complication-card">
+                    <h4><i class="fa-solid fa-user-slash"></i> ปัญหาทางสังคม</h4>
+                    <p>การแยกตัวออกจากสังคม รวมถึงปัญหาด้านความสัมพันธ์ในครอบครัว ที่ทำงาน และโรงเรียน</p>
+                </div>
+
+                <div class="complication-card">
+                    <h4><i class="fa-solid fa-hand-holding-medical"></i> พฤติกรรมทำร้ายตนเอง</h4>
+                    <p>เสี่ยงต่อการทำร้ายตัวเอง รวมถึงมีความคิดหรือพยายามฆ่าตัวตาย</p>
+                </div>
+
+                <div class="complication-card">
+                    <h4><i class="fa-solid fa-heart-crack"></i> ผลกระทบระยะยาว</h4>
+                    <p>อาจนำไปสู่การตายก่อนวัยอันควรจากปัญหาสุขภาพแทรกซ้อนหรือเหตุฉุกเฉิน</p>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- ปิด .container -->
+
+</body>
+</html>
