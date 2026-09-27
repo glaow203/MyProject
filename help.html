@@ -20,68 +20,70 @@
             flex-direction: column;
             min-height: 100vh;
         }
-        /* แถบด้านบนสุด (สีฟ้าอ่อนตามหน้าเว็บหลัก) */
-        .top-bar {
+        /* แถบแจ้งเตือนเล็กๆ ด้านบนสุดเหมือนรูปที่ 2 */
+        .top-announcement-bar {
             background-color: #f1f5f9;
-            padding: 8px 20px;
+            padding: 8px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #475569;
             border-bottom: 1px solid #e2e8f0;
         }
-        /* แถบ Navbar หลัก (สีขาวสะอาดตาพร้อมโลโก้และเมนู) */
+        .top-announcement-bar span i {
+            color: #2563eb;
+            margin-right: 5px;
+        }
+
+        /* Navbar หลักสีขาวเหมือนรูปที่ 2 เป๊ะๆ */
         .navbar {
             background-color: #ffffff;
-            padding: 15px 30px;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            flex-wrap: wrap;
-            gap: 15px;
         }
-        .logo-area {
+        .nav-brand {
             display: flex;
             align-items: center;
             gap: 10px;
-            color: #0284c7;
+            text-decoration: none;
+            color: #1e293b;
             font-size: 1.25rem;
             font-weight: bold;
-            text-decoration: none;
         }
-        .logo-area i {
-            background-color: #0284c7;
+        .nav-brand i {
+            background-color: #2563eb;
             color: white;
             padding: 8px;
             border-radius: 50%;
             font-size: 1rem;
         }
-        .menu {
+        .nav-menu {
             display: flex;
             gap: 20px;
             align-items: center;
-            overflow-x: auto;
         }
-        .menu a {
+        .nav-menu a {
+            text-decoration: none;
+            color: #475569;
             font-size: 0.95rem;
             font-weight: 400;
-            color: #475569;
-            text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
-        .menu a:hover {
-            color: #0284c7;
+        .nav-menu a:hover {
+            color: #2563eb;
         }
-        .btn-nav {
-            background-color: #0284c7 !important;
-            color: white !important;
+        .nav-menu a.active-btn {
+            background-color: #2563eb;
+            color: white;
             padding: 8px 16px;
             border-radius: 8px;
             font-weight: 500;
         }
-        
+
         /* ส่วนกล่องแชตตรงกลาง */
         .main-container {
             flex: 1;
@@ -95,7 +97,7 @@
             max-width: 650px;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             height: 75vh;
@@ -105,10 +107,10 @@
             border: 1px solid #e2e8f0;
         }
         .chat-header {
-            background-color: #0284c7;
+            background-color: #1e293b;
             color: white;
             padding: 16px 20px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -132,15 +134,13 @@
             word-wrap: break-word;
         }
         .bot-message {
-            background-color: #ffffff;
+            background-color: #e2e8f0;
             color: #1e293b;
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
         }
         .user-message {
-            background-color: #0284c7;
+            background-color: #10b981;
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
@@ -162,14 +162,14 @@
             font-size: 0.92rem;
         }
         .chat-input-area input:focus {
-            border-color: #0284c7;
+            border-color: #2563eb;
         }
         .chat-input-area button {
-            background-color: #0284c7;
+            background-color: #10b981;
             color: white;
             border: none;
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -177,33 +177,29 @@
             align-items: center;
             font-size: 1rem;
             flex-shrink: 0;
-            transition: background 0.2s;
-        }
-        .chat-input-area button:hover {
-            background-color: #0369a1;
         }
     </style>
 </head>
 <body>
 
-    <!-- แถบแจ้งข้อมูลด้านบนเหมือนหน้าหลัก -->
-    <div class="top-bar">
-        <span><i class="fa-solid fa-heart-pulse" style="color: #0284c7;"></i> สุขภาพจิต เริ่มต้นที่ความเข้าใจ</span>
-        <span><i class="fa-solid fa-phone" style="color: #0284c7;"></i> สายด่วนสุขภาพจิต 1323 (โทรฟรี 24 ชม.)</span>
+    <!-- แถบด้านบนสุดเหมือนรูปที่ 2 -->
+    <div class="top-announcement-bar">
+        <span><i class="fa-solid fa-heart-pulse"></i> สุขภาพจิต เริ่มต้นที่ความเข้าใจ</span>
+        <span><i class="fa-solid fa-phone"></i> สายด่วนสุขภาพจิต 1323 (โทรฟรี 24 ชม.)</span>
     </div>
 
-    <!-- เมนูหลัก Navbar สีขาวสะอาดตา -->
+    <!-- แถบ Navbar หลักสีขาวเหมือนรูปที่ 2 -->
     <nav class="navbar">
-        <a href="index.html" class="logo-area">
-            <i class="fa-solid fa-brain"></i> Mind Care
+        <a href="index.html" class="nav-brand">
+            <i class="fa-solid fa-brain"></i> MindCare
         </a>
-        <div class="menu">
+        <div class="nav-menu">
             <a href="index.html">หน้าแรก</a>
             <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
             <a href="symptoms.html">อาการ</a>
             <a href="causes.html">สาเหตุ</a>
             <a href="self-care.html">การดูแลตัวเอง</a>
-            <a href="help.html" class="btn-nav">ขอความช่วยเหลือ</a>
+            <a href="help.html" class="active-btn">ขอความช่วยเหลือ</a>
         </div>
     </nav>
 
@@ -211,7 +207,7 @@
     <div class="main-container">
         <div class="chat-container">
             <div class="chat-header">
-                <i class="fa-solid fa-robot"></i> Mind Care AI Assistant
+                <i class="fa-solid fa-robot"></i> MindCare AI Assistant
             </div>
 
             <div class="chat-box" id="chatBox">
