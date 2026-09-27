@@ -14,74 +14,101 @@
             font-family: 'Kanit', sans-serif;
         }
         body {
-            background-color: #f4f7f6;
+            background-color: #f8fafc;
             color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-        .navbar {
-            background-color: #2c3e50;
-            padding: 12px 20px;
+        /* แถบด้านบนสุด (สีฟ้าอ่อนตามหน้าเว็บหลัก) */
+        .top-bar {
+            background-color: #f1f5f9;
+            padding: 8px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            flex-wrap: wrap;
-            gap: 10px;
+            font-size: 0.9rem;
+            color: #475569;
+            border-bottom: 1px solid #e2e8f0;
         }
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
+        /* แถบ Navbar หลัก (สีขาวสะอาดตาพร้อมโลโก้และเมนู) */
+        .navbar {
+            background-color: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #0284c7;
+            font-size: 1.25rem;
             font-weight: bold;
-            white-space: nowrap;
+            text-decoration: none;
+        }
+        .logo-area i {
+            background-color: #0284c7;
+            color: white;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 1rem;
         }
         .menu {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
             overflow-x: auto;
-            padding-bottom: 5px;
         }
         .menu a {
             font-size: 0.95rem;
-            font-weight: normal;
+            font-weight: 400;
+            color: #475569;
+            text-decoration: none;
             transition: color 0.3s;
         }
         .menu a:hover {
-            color: #1abc9c;
+            color: #0284c7;
         }
         .btn-nav {
-            background-color: #1abc9c;
-            padding: 6px 12px;
-            border-radius: 5px;
+            background-color: #0284c7 !important;
+            color: white !important;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
         }
+        
+        /* ส่วนกล่องแชตตรงกลาง */
         .main-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 15px;
+            padding: 20px;
         }
         .chat-container {
             width: 100%;
-            max-width: 600px;
+            max-width: 650px;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             height: 75vh;
             max-height: 600px;
-            min-height: 400px;
+            min-height: 420px;
             overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
         .chat-header {
-            background-color: #34495e;
+            background-color: #0284c7;
             color: white;
-            padding: 15px 18px;
-            font-size: 1rem;
+            padding: 16px 20px;
+            font-size: 1.05rem;
             font-weight: 500;
             display: flex;
             align-items: center;
@@ -89,58 +116,60 @@
         }
         .chat-box {
             flex: 1;
-            padding: 15px;
+            padding: 20px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            background-color: #fafafa;
+            gap: 14px;
+            background-color: #f8fafc;
         }
         .message {
-            max-width: 85%;
-            padding: 10px 14px;
+            max-width: 80%;
+            padding: 12px 16px;
             border-radius: 16px;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 0.92rem;
+            line-height: 1.5;
             word-wrap: break-word;
         }
         .bot-message {
-            background-color: #e8f4f8;
-            color: #2c3e50;
+            background-color: #ffffff;
+            color: #1e293b;
             align-self: flex-start;
             border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
         .user-message {
-            background-color: #1abc9c;
+            background-color: #0284c7;
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
         }
         .chat-input-area {
             display: flex;
-            padding: 10px 12px;
+            padding: 12px 16px;
             background-color: white;
-            border-top: 1px solid #eee;
-            gap: 8px;
+            border-top: 1px solid #e2e8f0;
+            gap: 10px;
             align-items: center;
         }
         .chat-input-area input {
             flex: 1;
-            padding: 10px 14px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 24px;
             outline: none;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
         }
         .chat-input-area input:focus {
-            border-color: #1abc9c;
+            border-color: #0284c7;
         }
         .chat-input-area button {
-            background-color: #1abc9c;
+            background-color: #0284c7;
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -148,13 +177,26 @@
             align-items: center;
             font-size: 1rem;
             flex-shrink: 0;
+            transition: background 0.2s;
+        }
+        .chat-input-area button:hover {
+            background-color: #0369a1;
         }
     </style>
 </head>
 <body>
 
+    <!-- แถบแจ้งข้อมูลด้านบนเหมือนหน้าหลัก -->
+    <div class="top-bar">
+        <span><i class="fa-solid fa-heart-pulse" style="color: #0284c7;"></i> สุขภาพจิต เริ่มต้นที่ความเข้าใจ</span>
+        <span><i class="fa-solid fa-phone" style="color: #0284c7;"></i> สายด่วนสุขภาพจิต 1323 (โทรฟรี 24 ชม.)</span>
+    </div>
+
+    <!-- เมนูหลัก Navbar สีขาวสะอาดตา -->
     <nav class="navbar">
-        <a href="index.html"><i class="fa-solid fa-heart-pulse"></i> MindCare</a>
+        <a href="index.html" class="logo-area">
+            <i class="fa-solid fa-brain"></i> Mind Care
+        </a>
         <div class="menu">
             <a href="index.html">หน้าแรก</a>
             <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
@@ -165,10 +207,11 @@
         </div>
     </nav>
 
+    <!-- พื้นที่กล่องแชต -->
     <div class="main-container">
         <div class="chat-container">
             <div class="chat-header">
-                <i class="fa-solid fa-robot"></i> MindCare AI Assistant
+                <i class="fa-solid fa-robot"></i> Mind Care AI Assistant
             </div>
 
             <div class="chat-box" id="chatBox">
