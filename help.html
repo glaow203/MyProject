@@ -3,155 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ขอความช่วยเหลือ - MindCare AI Assistant</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>ขอความช่วยเหลือ - MindCare</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
+        body {
+            background-color: #f4f7f6;
+            color: #333;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
-
-        /* Topbar & Navbar */
-        .topbar {
-            background-color: #e8f4f8;
-            padding: 8px 20px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            color: #333;
-        }
         .navbar {
-            background: #ffffff;
-            padding: 15px 30px;
+            background-color: #2c3e50;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4A90E2;
+        .navbar a {
+            color: white;
             text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            white-space: nowrap;
         }
         .menu {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
+            overflow-x: auto;
+            padding-bottom: 5px;
         }
         .menu a {
-            text-decoration: none;
-            color: #555;
             font-size: 0.95rem;
-            transition: 0.3s;
+            font-weight: normal;
+            transition: color 0.3s;
         }
         .menu a:hover {
-            color: #4A90E2;
+            color: #1abc9c;
         }
-        .menu a.btn-nav {
-            background-color: #4A90E2;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
+        .btn-nav {
+            background-color: #1abc9c;
+            padding: 6px 12px;
+            border-radius: 5px;
         }
-
-        /* Container กล่องแชต */
         .main-container {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 15px;
+            padding: 15px;
         }
         .chat-container {
             width: 100%;
-            max-width: 450px;
-            background: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            overflow: hidden;
+            max-width: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 75vh;
+            max-height: 600px;
+            min-height: 400px;
+            overflow: hidden;
         }
         .chat-header {
-            background: #4A90E2;
+            background-color: #34495e;
             color: white;
-            padding: 16px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1rem;
+            padding: 15px 18px;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .chat-box {
             flex: 1;
-            padding: 16px;
+            padding: 15px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
+            background-color: #fafafa;
         }
         .message {
-            max-width: 80%;
+            max-width: 85%;
             padding: 10px 14px;
-            border-radius: 12px;
-            font-size: 0.95rem;
+            border-radius: 16px;
+            font-size: 0.9rem;
             line-height: 1.4;
-            white-space: pre-wrap;
+            word-wrap: break-word;
         }
         .bot-message {
-            background: #e9ecef;
-            color: #333;
+            background-color: #e8f4f8;
+            color: #2c3e50;
             align-self: flex-start;
-            border-bottom-left-radius: 2px;
+            border-bottom-left-radius: 4px;
         }
         .user-message {
-            background: #4A90E2;
+            background-color: #1abc9c;
             color: white;
             align-self: flex-end;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 4px;
         }
         .chat-input-area {
             display: flex;
-            padding: 12px;
-            background: #fff;
+            padding: 10px 12px;
+            background-color: white;
             border-top: 1px solid #eee;
+            gap: 8px;
+            align-items: center;
         }
         .chat-input-area input {
             flex: 1;
-            border: 1px solid #ccc;
             padding: 10px 14px;
+            border: 1px solid #ddd;
             border-radius: 20px;
             outline: none;
+            font-size: 0.9rem;
+        }
+        .chat-input-area input:focus {
+            border-color: #1abc9c;
         }
         .chat-input-area button {
-            background: #4A90E2;
+            background-color: #1abc9c;
             color: white;
             border: none;
-            padding: 10px 16px;
-            margin-left: 8px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- TOP BAR -->
-    <div class="topbar">
-        <div><i class="fa-solid fa-heart"></i> สุขภาพจิตดี เริ่มต้นที่ความเข้าใจ</div>
-        <div><i class="fa-solid fa-phone"></i> สายด่วนสุขภาพจิต <strong>1323</strong> (โทรฟรี 24 ชม.)</div>
-    </div>
-
-    <!-- NAVIGATION BAR -->
     <nav class="navbar">
-        <a href="index.html" class="logo">
-            <i class="fa-solid fa-brain"></i> Mind<span>Care</span>
-        </a>
+        <a href="index.html"><i class="fa-solid fa-heart-pulse"></i> MindCare</a>
         <div class="menu">
             <a href="index.html">หน้าแรก</a>
             <a href="what-is-depression.html">โรคซึมเศร้าคืออะไร</a>
@@ -162,7 +165,6 @@
         </div>
     </nav>
 
-    <!-- CHATBOT CONTAINER -->
     <div class="main-container">
         <div class="chat-container">
             <div class="chat-header">
@@ -171,7 +173,7 @@
 
             <div class="chat-box" id="chatBox">
                 <div class="message bot-message">
-                    สวัสดีครับ ผมเป็น AI ผู้ช่วยรับฟังและรับมือปัญหาสุขภาพจิตเบื้องต้น สามารถพูดคุยหรือปรึกษาปัญหาความเครียดและสุขภาพใจกับผมได้เลยครับ
+                    สวัสดีครับ! ผมเป็น AI ผู้ช่วยรับฟังและให้คำปรึกษาด้านสุขภาพจิตเบื้องต้น สามารถพูดคุยหรือระบายความรู้สึกได้เลยครับ
                 </div>
             </div>
 
@@ -182,10 +184,9 @@
         </div>
     </div>
 
-    <script>
-        // ใส่ API Key ของคุณตรงนี้
-        const GEMINI_API_KEY = "AQ.Ab8RN6LksUaIBCvjbIhv9cHL_hLViO42gPU4N1PCysDiCpKqog";
+    <script src="config.js"></script>
 
+    <script>
         const chatBox = document.getElementById('chatBox');
         const userInput = document.getElementById('userInput');
 
@@ -193,15 +194,33 @@
             const text = userInput.value.trim();
             if (!text) return;
 
+            if (typeof CONFIG === 'undefined' || !CONFIG.GEMINI_API_KEY) {
+                appendMessage("เกิดข้อผิดพลาด: ไม่พบค่า API Key ในไฟล์ config.js", 'bot-message');
+                return;
+            }
+
             appendMessage(text, 'user-message');
             userInput.value = '';
 
             const loadingDiv = appendMessage("กำลังคิดคำตอบ...", 'bot-message');
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
+                let apiKey = CONFIG.GEMINI_API_KEY;
+                let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+                let headers = { 'Content-Type': 'application/json' };
+
+                // รองรับกรณีคีย์เป็นรูปแบบ OAuth Token (AQ.Ab...)
+                if (apiKey.startsWith('AQ.')) {
+                    url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
+                    headers = {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${apiKey}`
+                    };
+                }
+
+                const response = await fetch(url, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: headers,
                     body: JSON.stringify({
                         contents: [{
                             parts: [{
@@ -212,11 +231,18 @@
                 });
 
                 const data = await response.json();
-                const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "ขออภัยครับ ระบบประมวลผลขัดข้อง ลองใหม่อีกครั้งนะครับ";
-                loadingDiv.innerText = aiReply;
+                
+                if (response.ok) {
+                    const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "ขออภัยครับ ระบบประมวลผลขัดข้อง ลองใหม่อีกครั้งนะครับ";
+                    loadingDiv.innerText = aiReply;
+                } else {
+                    console.error("API Error Response:", data);
+                    loadingDiv.innerText = `เกิดข้อผิดพลาด (Error Code: ${response.status}): ${data.error?.message || 'โปรดตรวจสอบคีย์ใน config.js อีกครั้ง'}`;
+                }
+
             } catch (error) {
                 console.error(error);
-                loadingDiv.innerText = "เกิดข้อผิดพลาดในการเชื่อมต่อกับ AI";
+                loadingDiv.innerText = "เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์";
             }
         }
 
