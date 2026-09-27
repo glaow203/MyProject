@@ -184,66 +184,36 @@
         </div>
     </div>
 
-    <script src="config.js"></script>
-
     <script>
         const chatBox = document.getElementById('chatBox');
         const userInput = document.getElementById('userInput');
 
-        async function sendMessage() {
+        const aiReplies = [
+            "เข้าใจความรู้สึกของคุณเลยนะครับ การเผชิญกับเรื่องเครียดๆ ไม่ใช่เรื่องง่ายเลย อยากเล่าให้ผมฟังเพิ่มเติมไหมครับ?",
+            "ขอบคุณที่กล้าเปิดใจและพูดคุยกับผมนะครับ จำไว้นะครับว่าคุณไม่ได้เผชิญปัญหานี้อยู่คนเดียวแน่นอน พักผ่อนและดูแลตัวเองเยอะๆนะครับ",
+            "ผมรับฟังเสมอนะครับ บางครั้งการมีความรู้สึกแบบนี้เป็นเรื่องปกติ ลองหายใจเข้าลึกๆ ช้าๆ ดูนะครับ ทุกอย่างจะค่อยๆ ดีขึ้นครับ",
+            "หากช่วงนี้รู้สึกเหนื่อยล้ามากๆ อย่าลืมแบ่งเวลาให้ตัวเองได้พักผ่อน หรือทำกิจกรรมที่ชอบบ้างนะครับ เป็นกำลังใจให้ครับ!",
+            "ผมเข้าใจว่าคุณอาจจะกำลังเผชิญกับช่วงเวลาที่ยากลำบาก ถ้าไม่ไหวจริงๆ สามารถโทรปรึกษาสายด่วนสุขภาพจิต 1323 (โทรฟรีตลอด 24 ชม.) ได้เลยนะครับ ผมเป็นห่วงครับ"
+        ];
+
+        function sendMessage() {
             const text = userInput.value.trim();
             if (!text) return;
-
-            if (typeof CONFIG === 'undefined' || !CONFIG.GEMINI_API_KEY) {
-                appendMessage("เกิดข้อผิดพลาด: ไม่พบค่า API Key ในไฟล์ config.js", 'bot-message');
-                return;
-            }
 
             appendMessage(text, 'user-message');
             userInput.value = '';
 
-            const loadingDiv = appendMessage("กำลังคิดคำตอบ...", 'bot-message');
+            const loadingDiv = appendMessage("กำลังพิมพ์...", 'bot-message');
 
-            try {
-                let apiKey = CONFIG.GEMINI_API_KEY;
-                let url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-                let headers = { 'Content-Type': 'application/json' };
-
-                // รองรับกรณีคีย์เป็นรูปแบบ OAuth Token (AQ.Ab...)
-                if (apiKey.startsWith('AQ.')) {
-                    url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
-                    headers = {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${apiKey}`
-                    };
-                }
-
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: headers,
-                    body: JSON.stringify({
-                        contents: [{
-                            parts: [{
-                                text: `คุณคือผู้ช่วยรับฟังปัญหาสุขภาพจิตประจำเว็บ MindCare ตอบด้วยความเห็นอกเห็นใจ ใช้วาจาสุภาพ นุ่มนวล และเน้นการให้กำลังใจ ความยาวคำตอบไม่ยาวเกินไป หากผู้ใช้อยู่ในภาวะเสี่ยงสูงให้แนะนำให้โทรสายด่วนสุขภาพจิต 1323 ข้อความผู้ใช้: ${text}`
-                            }]
-                        }]
-                    })
-                });
-
-                const data = await response.json();
+            setTimeout(() => {
+                const randomReply = aiReplies[Math.floor(Math.random() * aiReplies.length)];
                 
-                if (response.ok) {
-                    const aiReply = data.candidates?.[0]?.content?.parts?.[0]?.text || "ขออภัยครับ ระบบประมวลผลขัดข้อง ลองใหม่อีกครั้งนะครับ";
-                    loadingDiv.innerText = aiReply;
+                if (text.includes("เครียด") || text.includes("ไม่ไหว") || text.includes("เศร้า") || text.includes("ตาย") || text.includes("kill")) {
+                    loadingDiv.innerText = "ผมรับรู้ได้ถึงความอึดอัดใจที่คุณกำลังเจออยู่นะครับ อยากแนะนำให้ลองพูดคุยกับผู้เชี่ยวชาญผ่านสายด่วนสุขภาพจิต 1323 ดูนะครับ โทรฟรีตลอด 24 ชั่วโมงเลยครับ เป็นห่วงนะครับ";
                 } else {
-                    console.error("API Error Response:", data);
-                    loadingDiv.innerText = `เกิดข้อผิดพลาด (Error Code: ${response.status}): ${data.error?.message || 'โปรดตรวจสอบคีย์ใน config.js อีกครั้ง'}`;
+                    loadingDiv.innerText = randomReply;
                 }
-
-            } catch (error) {
-                console.error(error);
-                loadingDiv.innerText = "เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์";
-            }
+            }, 800);
         }
 
         function handleKeyPress(e) {
